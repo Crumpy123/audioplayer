@@ -150,7 +150,7 @@ FlutterMethodChannel *_channel;
         [player pause];
         isPlaying = false;
     }
-    [playerItem seekToTime:CMTimeMake(0, 1)];
+    //[playerItem seekToTime:CMTimeMake(0, 1)];
     [_channel invokeMethod:@"audio.onStop" arguments:nil];
 }
 
