@@ -77,6 +77,18 @@ FlutterMethodChannel *_channel;
 }
 
 - (void)play:(NSString*)url isLocal:(int)isLocal {
+    
+      	// Fix for background playing
+        NSError *error = nil;
+        BOOL success = [[AVAudioSession sharedInstance]
+                        setCategory:AVAudioSessionCategoryPlayback
+                        error:&error];
+        if (!success) {
+            NSLog(@"Error setting speaker");
+
+        }
+	// End fix
+    
     if (true){//![url isEqualToString:lastUrl]) {
         [playerItem removeObserver:self
                         forKeyPath:@"player.currentItem.status"];
