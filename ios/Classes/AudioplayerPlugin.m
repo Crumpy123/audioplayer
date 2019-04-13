@@ -77,7 +77,7 @@ FlutterMethodChannel *_channel;
 }
 
 - (void)play:(NSString*)url isLocal:(int)isLocal {
-    if (![url isEqualToString:lastUrl]) {
+    if (false){//![url isEqualToString:lastUrl]) {
         [playerItem removeObserver:self
                         forKeyPath:@"player.currentItem.status"];
         
