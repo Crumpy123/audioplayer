@@ -131,7 +131,7 @@ FlutterMethodChannel *_channel;
     CMTime duration = [[player currentItem] duration];
 
     int mseconds= CMTimeGetSeconds(duration)*1000;
-    [_channel invokeMethod:@"audio.onStart" arguments:@(mseconds)];
+    [_channel invokeMethod:@"audio.onStop" arguments:@(mseconds)];
 }
 
 - (void)onTimeInterval:(CMTime)time {
