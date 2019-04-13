@@ -148,8 +148,6 @@ FlutterMethodChannel *_channel;
 - (void)stop {
     if (isPlaying) {
         [player pause];
-        [self.avPlayerLayer removeFromSuperlayer];
-        self.videoPlayer = nil;
         isPlaying = false;
     }
     //[playerItem seekToTime:CMTimeMake(0, 1)];
