@@ -23,7 +23,7 @@ CMTime position;
 NSString *lastUrl;
 BOOL isPlaying = false;
 NSMutableSet *observers;
-NSMutableSet *timeobservers;
+NSMutableSet *timeobservers2;
 FlutterMethodChannel *_channel;
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -125,7 +125,8 @@ FlutterMethodChannel *_channel;
             id timeObserver = [player addPeriodicTimeObserverForInterval:interval queue:nil usingBlock:^(CMTime time){
                 [self onTimeInterval:time];
             }];
-            [timeobservers addObject:timeObserver];
+            [
+		    addObject:timeObserver];
         }
         
         // is sound ready
@@ -194,10 +195,10 @@ FlutterMethodChannel *_channel;
 }
 
 - (void)dealloc {
-    for (id ob in timeobservers) {
+    for (id ob in timeobservers2) {
         [player removeTimeObserver:ob];
     }
-    timeobservers = nil;
+    timeobservers2 = nil;
     
     for (id ob in observers) {
         [[NSNotificationCenter defaultCenter] removeObserver:ob];
